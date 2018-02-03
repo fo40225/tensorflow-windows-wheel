@@ -23,3 +23,8 @@ tensorflow Windows prebuilt wheel
 | 1.1.0\py36\CPU\avx | VS2015 Update 3 | No | AVX | Python 3.6 |
 | 1.1.0\py36\CPU\avx2 | VS2015 Update 3 | No | AVX2 | Python 3.6 |
 | 1.1.0\py36\GPU\cuda8cudnn6avx2 | VS2015 Update 3 | 8.0.61.2/6.0.21 | AVX2 | Python 3.6/Compute 3.0,3.5,5.0,5.2,6.1 |
+| 1.0.0\py36\CPU\sse2 | VS2015 Update 3 | No | x86_64 | Python 3.6 |
+| 1.0.0\py36\CPU\avx | VS2015 Update 3 | No | AVX | Python 3.6 |
+| 1.0.0\py36\CPU\avx2 | VS2015 Update 3 | No | AVX2 | Python 3.6 |
+| 1.0.0\py36\GPU\cuda8cudnn51sse2 | VS2015 Update 3 | 8.0.61.2/5.1.10 | x86_64 | Python 3.6/Compute 3.0 |
+| 1.0.0\py36\GPU\cuda8cudnn51avx2 | VS2015 Update 3 | 8.0.61.2/5.1.10 | AVX2 | Python 3.6/Compute 3.0,3.5,5.0,5.2,6.1 |
