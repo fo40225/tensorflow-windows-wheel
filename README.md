@@ -3,6 +3,14 @@ tensorflow Windows prebuilt wheel
 
 | Path | Compiler | CUDA/cuDNN | SIMD | Notes |
 |-|-|-|-|-|
+| 1.7.0\py36\CPU\sse2 | VS2017 15.4 | No | x86_64 | Python 3.6 |
+| 1.7.0\py36\CPU\avx2 | VS2017 15.4 | No | AVX2 | Python 3.6 |
+| 1.7.0\py36\GPU\cuda91cudnn71sse2 | VS2017 15.4 | 9.1.85.3/7.1.2 | x86_64 | Python 3.6/Compute 3.0 |
+| 1.7.0\py36\GPU\cuda91cudnn71avx2 | VS2017 15.4 | 9.1.85.3/7.1.2 | AVX2 | Python 3.6/Compute 3.0,3.5,5.0,5.2,6.1,7.0 |
+| 1.7.0\py27\CPU\sse2 | VS2017 15.4 | No | x86_64 | Python 2.7 |
+| 1.7.0\py27\CPU\avx2 | VS2017 15.4 | No | AVX2 | Python 2.7 |
+| 1.7.0\py27\GPU\cuda91cudnn71sse2 | VS2017 15.4 | 9.1.85.3/7.1.2 | x86_64 | Python 2.7/Compute 3.0 |
+| 1.7.0\py27\GPU\cuda91cudnn71avx2 | VS2017 15.4 | 9.1.85.3/7.1.2 | AVX2 | Python 2.7/Compute 3.0,3.5,5.0,5.2,6.1,7.0 |
 | 1.6.0\py36\CPU\sse2 | VS2017 15.4 | No | x86_64 | Python 3.6 |
 | 1.6.0\py36\CPU\avx2 | VS2017 15.4 | No | AVX2 | Python 3.6 |
 | 1.6.0\py36\GPU\cuda91cudnn71sse2 | VS2017 15.4 | 9.1.85.3/7.1.1 | x86_64 | Python 3.6/Compute 3.0 |
