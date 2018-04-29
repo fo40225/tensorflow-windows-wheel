@@ -3,6 +3,7 @@ tensorflow Windows prebuilt wheel
 
 | Path | Compiler | CUDA/cuDNN | SIMD | Notes |
 |-|-|-|-|-|
+| 1.8.0\py36\CPU\sse2 | VS2017 15.4 | No | x86_64 | Python 3.6 |
 | 1.7.0\py36\CPU\sse2 | VS2017 15.4 | No | x86_64 | Python 3.6 |
 | 1.7.0\py36\CPU\avx2 | VS2017 15.4 | No | AVX2 | Python 3.6 |
 | 1.7.0\py36\GPU\cuda91cudnn71sse2 | VS2017 15.4 | 9.1.85.3/7.1.2 | x86_64 | Python 3.6/Compute 3.0 |
