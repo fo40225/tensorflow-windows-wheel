@@ -1,5 +1,20 @@
 # tensorflow-windows-wheel
-tensorflow Windows prebuilt wheel
+
+This repo contains all you need that work with tensorflow on windows.
+
+- Python 2.7 and 3.6 support
+
+- 64 bit and 32 bit Windows support
+
+- Legacy CPU (without AVX) support
+    - If your CPU didn't support AVX instructions, you will get `ImportError: DLL load failed: A dynamic link library (DLL) initialization routine failed.` (Win 10) or `ImportError: DLL load failed with error code -1073741795` (Win 7) when using tensorflow official release 1.6.0 and up (`pip install tensorflow`)
+    - You can use `pip install *.whl` which file download from sse2 folder instead of using official AVX binary.
+
+- Legacy GPU (compute capability 3.0 up) support
+    - Because my binary only contain PTX code, it need to do a Just-In-Time compile to SASS to target your graphic card by your driver. It will take time to first execute tensorflow for compiling.
+
+- Tensorflow C++ library prebuilt binary for Windows
+    - For ANSI C user, you can download official Tensorflow C API binary https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.8.0.zip
 
 | Path | Compiler | CUDA/cuDNN | SIMD | Notes |
 |-|-|-|-|-|
