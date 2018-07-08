@@ -11,7 +11,7 @@ This repo contains all you need that work with tensorflow on windows.
     - You can use `pip install *.whl` which file download from sse2 folder instead of using official AVX binary.
 
 - Legacy GPU (compute capability 3.0 up) support
-    - Because my binary only contain PTX code, it need to do a Just-In-Time compile to SASS to target your graphic card by your driver. It will take time to first execute tensorflow for compiling.
+    - Because this repo's binary only contain PTX code, it need to do a Just-In-Time compile to SASS to target your graphic card by your driver. It will take time for compiling when first execute tensorflow.
 
 - Tensorflow C++ library prebuilt binary for Windows
     - For ANSI C user, you can download official Tensorflow C API binary https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.8.0.zip
