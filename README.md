@@ -14,10 +14,11 @@ This repo contains all you need that work with tensorflow on windows.
     - Because this repo's binary only contain PTX code, it need to do a Just-In-Time compile to SASS to target your graphic card by your driver. It will take time for compiling when first execute tensorflow.
 
 - Tensorflow C++ library prebuilt binary for Windows
-    - For ANSI C user, you can download official Tensorflow C API binary https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.8.0.zip
+    - For ANSI C user, you can download official Tensorflow C API binary https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.9.0.zip
 
 | Path | Compiler | CUDA/cuDNN | SIMD | Notes |
 |-|-|-|-|-|
+| 1.9.0\py36\CPU\sse2 | VS2017 15.7 | No | x86_64 | Python 3.6 |
 | 1.8.0\py36\CPU\sse2 | VS2017 15.4 | No | x86_64 | Python 3.6 |
 | 1.8.0\py36\CPU\avx2 | VS2017 15.4 | No | AVX2 | Python 3.6 |
 | 1.8.0\py36\GPU\cuda91cudnn71sse2 | VS2017 15.4 | 9.1.85.3/7.1.3 | x86_64 | Python 3.6/Compute 3.0 |
