@@ -11,21 +11,21 @@ This repo contains all you need that work with tensorflow on windows.
     - You can use `pip install *.whl` which file download from sse2 folder instead of using official AVX binary.
 
 - Legacy GPU (compute capability 3.0 up) support
-    - Because this repo's binary only contain PTX code, it need to do a Just-In-Time compile to SASS to target your graphic card by your driver. It will take time for compiling when first execute tensorflow.
+    - Because this repo's binary only contain PTX code, it need to do a Just-In-Time compile to SASS to target your graphic card by your driver. It will take time for compiling when execute tensorflow first time.
 
 - Tensorflow C++ library prebuilt binary for Windows
-    - For ANSI C user, you can download official Tensorflow C API binary https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.9.0.zip
+    - For ANSI C user, you can download official Tensorflow C API binary https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.10.0.zip
 
 | Path | Compiler | CUDA/cuDNN | SIMD | Notes |
 |-|-|-|-|-|
 | 1.10.0\py36\CPU\sse2 | VS2017 15.8 | No | x86_64 | Python 3.6 |
 | 1.10.0\py36\CPU\avx2 | VS2017 15.8 | No | AVX2 | Python 3.6 |
-| 1.10.0\py36\GPU\cuda92cudnn71sse2 | VS2017 15.8 | 9.2.148.1/7.2.1 | x86_64 | Python 3.6/Compute 3.0 |
-| 1.10.0\py36\GPU\cuda99cudnn71avx2 | VS2017 15.8 | 9.2.148.1/7.2.1 | AVX2 | Python 3.6/Compute 3.0,3.5,5.0,5.2,6.1,7.0 |
+| 1.10.0\py36\GPU\cuda92cudnn72sse2 | VS2017 15.8 | 9.2.148.1/7.2.1 | x86_64 | Python 3.6/Compute 3.0 |
+| 1.10.0\py36\GPU\cuda99cudnn72avx2 | VS2017 15.8 | 9.2.148.1/7.2.1 | AVX2 | Python 3.6/Compute 3.0,3.5,5.0,5.2,6.1,7.0 |
 | 1.10.0\py27\CPU\sse2 | VS2017 15.8 | No | x86_64 | Python 2.7 |
 | 1.10.0\py27\CPU\avx2 | VS2017 15.8 | No | AVX2 | Python 2.7 |
-| 1.10.0\py27\GPU\cuda92cudnn71sse2 | VS2017 15.8 | 9.2.148.1/7.2.1 | x86_64 | Python 2.7/Compute 3.0 |
-| 1.10.0\py27\GPU\cuda92cudnn71avx2 | VS2017 15.8 | 9.2.148.1/7.2.1 | AVX2 | Python 2.7/Compute 3.0,3.5,5.0,5.2,6.1,7.0 |
+| 1.10.0\py27\GPU\cuda92cudnn72sse2 | VS2017 15.8 | 9.2.148.1/7.2.1 | x86_64 | Python 2.7/Compute 3.0 |
+| 1.10.0\py27\GPU\cuda92cudnn72avx2 | VS2017 15.8 | 9.2.148.1/7.2.1 | AVX2 | Python 2.7/Compute 3.0,3.5,5.0,5.2,6.1,7.0 |
 | 1.9.0\py36\CPU\sse2 | VS2017 15.7 | No | x86_64 | Python 3.6 |
 | 1.9.0\py36\CPU\avx2 | VS2017 15.7 | No | AVX2 | Python 3.6 |
 | 1.9.0\py36\GPU\cuda92cudnn71sse2 | VS2017 15.7 | 9.2.148/7.1.4 | x86_64 | Python 3.6/Compute 3.0 |
