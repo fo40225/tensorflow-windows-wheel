@@ -1,0 +1,500 @@
+# Intel Core i7-8700
+# NVIDIA GeForce RTX 2080 TI
+# driver 411.31
+# cuda 10.0.130
+# cudnn v7.5.0.56 for cuda 10
+
+>"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"
+Sat Mar 23 10:20:34 2019
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 411.31                 Driver Version: 411.31                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 208... WDDM  | 00000000:01:00.0  On |                  N/A |
+| 27%   36C    P8    21W / 250W |    369MiB / 11264MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
+>pip install tensorflow-gpu
+
+benchmarks\scripts\tf_cnn_benchmarks>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2019-03-23 10:20:40.700945: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2019-03-23 10:20:40.910771: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+totalMemory: 11.00GiB freeMemory: 8.99GiB
+2019-03-23 10:20:40.916106: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:20:41.314648: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:20:41.317886: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:20:41.319715: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:20:41.321839: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8659 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  1.13
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+W0323 10:20:41.336232  7040 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+W0323 10:20:41.336232  7040 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:129: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.conv2d instead.
+W0323 10:20:41.367501  7040 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:261: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.max_pooling2d instead.
+W0323 10:20:42.476607  7040 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\losses\losses_impl.py:209: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+W0323 10:20:42.554727  7040 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Initializing graph
+W0323 10:20:43.101464  7040 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2238: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2019-03-23 10:20:43.370821: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:20:43.373128: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:20:43.375320: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:20:43.376682: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:20:43.378103: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8659 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+I0323 10:20:44.007482  7040 session_manager.py:491] Running local_init_op.
+I0323 10:20:44.054377  7040 session_manager.py:493] Done running local_init_op.
+Running warm up
+2019-03-23 10:20:45.013178: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library cublas64_100.dll locally
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 292.7 +/- 0.0 (jitter = 0.0)        7.695
+10      images/sec: 305.7 +/- 3.5 (jitter = 0.1)        8.122
+20      images/sec: 306.9 +/- 2.4 (jitter = 0.0)        8.039
+30      images/sec: 307.3 +/- 1.9 (jitter = 0.0)        7.974
+40      images/sec: 306.3 +/- 1.7 (jitter = 0.0)        7.808
+50      images/sec: 306.2 +/- 1.5 (jitter = 0.0)        7.641
+60      images/sec: 305.7 +/- 1.4 (jitter = 0.0)        7.609
+70      images/sec: 305.4 +/- 1.3 (jitter = 0.1)        8.212
+80      images/sec: 305.2 +/- 1.2 (jitter = 0.1)        7.704
+90      images/sec: 304.7 +/- 1.2 (jitter = 0.1)        7.817
+100     images/sec: 304.6 +/- 1.1 (jitter = 0.1)        7.736
+----------------------------------------------------------------
+total images/sec: 304.38
+----------------------------------------------------------------
+
+>pip uninstall tensorflow-gpu -y
+
+# driver 418.96
+# cuda 10.1.105
+# cudnn v7.5.0.56 for cuda 10.1
+
+>"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"
+Sat Mar 23 10:42:17 2019
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.96       Driver Version: 418.96       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 208... WDDM  | 00000000:01:00.0 Off |                  N/A |
+| 27%   33C    P8    22W / 250W |    313MiB / 11264MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
+benchmarks\scripts\tf_cnn_benchmarks>pip install tensorflow_gpu-1.13.1+nv-cp37-cp37m-win_amd64.whl
+
+benchmarks\scripts\tf_cnn_benchmarks>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2019-03-23 10:44:35.553750: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+totalMemory: 11.00GiB freeMemory: 9.03GiB
+2019-03-23 10:44:35.557258: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:44:36.019284: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:44:36.021977: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:44:36.023561: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:44:36.025284: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  1.13
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+W0323 10:44:36.031498 13712 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+W0323 10:44:36.031498 13712 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:129: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.conv2d instead.
+W0323 10:44:36.062766 13712 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:261: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.max_pooling2d instead.
+W0323 10:44:37.218720 13712 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\losses\losses_impl.py:209: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+W0323 10:44:37.296853 13712 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Initializing graph
+W0323 10:44:37.859224 13712 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2238: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2019-03-23 10:44:38.126957: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:44:38.129533: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:44:38.131879: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:44:38.133256: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:44:38.134704: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+I0323 10:44:38.749612 13712 session_manager.py:491] Running local_init_op.
+I0323 10:44:38.796500 13712 session_manager.py:493] Done running local_init_op.
+Running warm up
+2019-03-23 10:44:39.720901: I tensorflow/stream_executor/dso_loader.cc:153] successfully opened CUDA library cublas64_10.dll locally
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 292.7 +/- 0.0 (jitter = 0.0)        7.695
+10      images/sec: 305.7 +/- 3.5 (jitter = 0.1)        8.122
+20      images/sec: 305.7 +/- 2.5 (jitter = 0.1)        8.039
+30      images/sec: 305.7 +/- 2.0 (jitter = 0.0)        7.974
+40      images/sec: 305.2 +/- 1.8 (jitter = 0.1)        7.808
+50      images/sec: 304.8 +/- 1.6 (jitter = 0.1)        7.640
+60      images/sec: 304.6 +/- 1.4 (jitter = 0.1)        7.610
+70      images/sec: 304.4 +/- 1.3 (jitter = 0.1)        8.212
+80      images/sec: 304.3 +/- 1.3 (jitter = 0.1)        7.706
+90      images/sec: 304.0 +/- 1.2 (jitter = 0.1)        7.818
+100     images/sec: 303.7 +/- 1.1 (jitter = 0.1)        7.732
+----------------------------------------------------------------
+total images/sec: 303.70
+----------------------------------------------------------------
+
+SET TF_ENABLE_CUBLAS_TENSOR_OP_MATH_FP32=1
+SET TF_ENABLE_CUDNN_TENSOR_OP_MATH_FP32=1
+SET TF_ENABLE_CUDNN_RNN_TENSOR_OP_MATH_FP32=1
+
+>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2019-03-23 10:54:00.258847: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+totalMemory: 11.00GiB freeMemory: 9.03GiB
+2019-03-23 10:54:00.263563: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:54:00.661657: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:54:00.664625: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:54:00.666260: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:54:00.668023: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  1.13
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+W0323 10:54:00.670897 16008 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+W0323 10:54:00.686545 16008 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:129: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.conv2d instead.
+W0323 10:54:00.702140 16008 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:261: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.max_pooling2d instead.
+W0323 10:54:01.842498 16008 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\losses\losses_impl.py:209: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+W0323 10:54:01.921003 16008 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Initializing graph
+W0323 10:54:02.467749 16008 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2238: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2019-03-23 10:54:02.728090: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:54:02.730721: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:54:02.733034: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:54:02.734455: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:54:02.735869: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+I0323 10:54:03.326893 16008 session_manager.py:491] Running local_init_op.
+I0323 10:54:03.373790 16008 session_manager.py:493] Done running local_init_op.
+Running warm up
+2019-03-23 10:54:04.275670: I tensorflow/stream_executor/dso_loader.cc:153] successfully opened CUDA library cublas64_10.dll locally
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 341.4 +/- 0.0 (jitter = 0.0)        7.695
+10      images/sec: 344.3 +/- 2.9 (jitter = 0.0)        8.122
+20      images/sec: 342.8 +/- 2.5 (jitter = 0.0)        8.039
+30      images/sec: 343.3 +/- 2.0 (jitter = 0.0)        7.974
+40      images/sec: 342.8 +/- 1.5 (jitter = 0.0)        7.806
+50      images/sec: 342.6 +/- 1.2 (jitter = 0.0)        7.641
+60      images/sec: 342.8 +/- 1.1 (jitter = 0.0)        7.611
+70      images/sec: 342.6 +/- 1.1 (jitter = 0.0)        8.213
+80      images/sec: 342.5 +/- 1.0 (jitter = 0.0)        7.702
+90      images/sec: 342.4 +/- 1.1 (jitter = 0.0)        7.813
+100     images/sec: 342.0 +/- 1.0 (jitter = 0.0)        7.744
+----------------------------------------------------------------
+total images/sec: 341.98
+----------------------------------------------------------------
+
+SET TF_ENABLE_AUTO_MIXED_PRECISION=1
+
+Traceback (most recent call last):
+  File "tf_cnn_benchmarks.py", line 72, in <module>
+    app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+  File "C:\Users\User\Anaconda3\lib\site-packages\absl\app.py", line 300, in run
+    _run_main(main, args)
+  File "C:\Users\User\Anaconda3\lib\site-packages\absl\app.py", line 251, in _run_main
+    sys.exit(main(argv))
+  File "tf_cnn_benchmarks.py", line 68, in main
+    bench.run()
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py", line 1851, in run
+    return self._benchmark_train()
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py", line 2047, in _benchmark_train
+    build_result = self._build_graph()
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py", line 2081, in _build_graph
+    (input_producer_op, enqueue_ops, fetches) = self._build_model()
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py", line 2861, in _build_model
+    phase_train)
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py", line 2939, in _build_fetches
+    loss_scale_params)
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\variable_mgr.py", line 112, in append_apply_gradients_ops
+    self.grad_has_inf_nan)
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\variable_mgr_util.py", line 114, in append_gradients_with_loss_scale
+    training_ops.extend(get_apply_gradients_ops_func())
+  File "C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\variable_mgr.py", line 108, in get_apply_gradients_ops_func
+    return [opt.apply_gradients(grads)]
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\training\optimizer.py", line 591, in apply_gradients
+    shift_update_op = self._update_gradient_shift(all_finite)
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\training\optimizer.py", line 876, in _update_gradient_shift
+    return control_flow_ops.cond(all_finite, finite_branch, overflow_branch)
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\util\deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\control_flow_ops.py", line 2097, in cond
+    orig_res_t, res_t = context_t.BuildCondBranch(true_fn)
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\control_flow_ops.py", line 1941, in BuildCondBranch
+    original_result = fn()
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\training\optimizer.py", line 874, in finite_branch
+    return control_flow_ops.cond(should_update, boost_branch, incr_branch)
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\util\deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\control_flow_ops.py", line 2097, in cond
+    orig_res_t, res_t = context_t.BuildCondBranch(true_fn)
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\control_flow_ops.py", line 1941, in BuildCondBranch
+    original_result = fn()
+  File "C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\training\optimizer.py", line 862, in boost_branch
+    new_scale_val = clip_ops.clip_by_value(scalar * 2.0, scale_min, scale_max)
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'
+
+SET TF_ENABLE_AUTO_MIXED_PRECISION=1
+SET TF_ENABLE_AUTO_MIXED_PRECISION_GRAPH_REWRITE=1
+SET TF_ENABLE_AUTO_MIXED_PRECISION_LOSS_SCALING=0
+
+>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2019-03-23 10:57:20.450077: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+totalMemory: 11.00GiB freeMemory: 9.03GiB
+2019-03-23 10:57:20.455391: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:57:20.864224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:57:20.866432: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:57:20.867854: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:57:20.869368: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  1.13
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+W0323 10:57:20.874091 15800 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+W0323 10:57:20.889733 15800 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:129: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.conv2d instead.
+W0323 10:57:20.905354 15800 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:261: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.max_pooling2d instead.
+W0323 10:57:22.014445 15800 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\losses\losses_impl.py:209: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+W0323 10:57:22.092576 15800 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Initializing graph
+W0323 10:57:22.623677 15800 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2238: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2019-03-23 10:57:22.885352: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 10:57:22.887954: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 10:57:22.891324: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 10:57:22.893256: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 10:57:22.895291: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2019-03-23 10:57:22.979274: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 10:57:22.988011: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+I0323 10:57:23.514117 15800 session_manager.py:491] Running local_init_op.
+2019-03-23 10:57:23.544992: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 10:57:23.548886: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+I0323 10:57:23.560957 15800 session_manager.py:493] Done running local_init_op.
+2019-03-23 10:57:23.591940: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 10:57:23.597600: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+2019-03-23 10:57:23.754734: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 10:57:23.757893: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+2019-03-23 10:57:23.791077: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 10:57:23.794219: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+Running warm up
+2019-03-23 10:57:23.851725: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 10:57:23.874600: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1660] Converted 457/2205 nodes to float16 precision using 2 cast(s) to float16 (excluding Const and Variable casts)
+2019-03-23 10:57:24.568357: I tensorflow/stream_executor/dso_loader.cc:153] successfully opened CUDA library cublas64_10.dll locally
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 512.1 +/- 0.0 (jitter = 0.0)        7.695
+10      images/sec: 505.8 +/- 5.4 (jitter = 0.0)        8.121
+20      images/sec: 505.8 +/- 3.8 (jitter = 0.0)        8.043
+30      images/sec: 505.8 +/- 3.1 (jitter = 0.0)        7.976
+40      images/sec: 505.8 +/- 2.7 (jitter = 0.0)        7.808
+50      images/sec: 505.8 +/- 2.4 (jitter = 0.0)        7.644
+60      images/sec: 505.8 +/- 2.2 (jitter = 0.0)        7.611
+70      images/sec: 505.8 +/- 2.0 (jitter = 0.0)        8.217
+80      images/sec: 505.0 +/- 2.0 (jitter = 0.0)        7.702
+90      images/sec: 505.1 +/- 1.9 (jitter = 0.0)        7.816
+100     images/sec: 503.9 +/- 1.9 (jitter = 0.0)        7.745
+----------------------------------------------------------------
+total images/sec: 503.93
+----------------------------------------------------------------
+
+# Power Limit 280W (112%)
+# MSI Afterburner OC Scanner
+# Scan succeeded, average overclock is 217MHz
+//linux
+//sudo nvidia-smi -pm 1
+//sudo nvidia-smi -pl 280
+
+>"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"
+Sat Mar 23 12:16:23 2019
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.96       Driver Version: 418.96       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 208... WDDM  | 00000000:01:00.0 Off |                  N/A |
+| 27%   36C    P5    21W / 280W |    330MiB / 11264MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
+>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2019-03-23 12:17:49.204799: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+totalMemory: 11.00GiB freeMemory: 9.03GiB
+2019-03-23 12:17:49.210083: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 12:17:49.609293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 12:17:49.612172: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 12:17:49.613967: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 12:17:49.615798: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  1.13
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+W0323 12:17:49.618898  8216 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+W0323 12:17:49.634520  8216 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:129: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.conv2d instead.
+W0323 12:17:49.650169  8216 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:261: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.max_pooling2d instead.
+W0323 12:17:50.790498  8216 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\losses\losses_impl.py:209: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+W0323 12:17:50.868605  8216 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Initializing graph
+W0323 12:17:51.415374  8216 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2238: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2019-03-23 12:17:51.675664: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-03-23 12:17:51.678011: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-03-23 12:17:51.681177: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-03-23 12:17:51.682925: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-03-23 12:17:51.684832: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8704 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2019-03-23 12:17:51.765608: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 12:17:51.774088: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+I0323 12:17:52.305771  8216 session_manager.py:491] Running local_init_op.
+2019-03-23 12:17:52.342249: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 12:17:52.344899: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+I0323 12:17:52.352633  8216 session_manager.py:493] Done running local_init_op.
+2019-03-23 12:17:52.383887: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 12:17:52.389634: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+2019-03-23 12:17:52.546642: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 12:17:52.549557: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+2019-03-23 12:17:52.582776: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 12:17:52.585795: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1230] No whitelist ops found, nothing to do
+Running warm up
+2019-03-23 12:17:52.640000: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1704] Running auto_mixed_precision graph optimizer
+2019-03-23 12:17:52.661392: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1660] Converted 457/2205 nodes to float16 precision using 2 cast(s) to float16 (excluding Const and Variable casts)
+2019-03-23 12:17:53.354003: I tensorflow/stream_executor/dso_loader.cc:153] successfully opened CUDA library cublas64_10.dll locally
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 512.1 +/- 0.0 (jitter = 0.0)        7.693
+10      images/sec: 525.3 +/- 9.2 (jitter = 0.0)        8.119
+20      images/sec: 528.6 +/- 7.1 (jitter = 0.0)        8.040
+30      images/sec: 529.8 +/- 5.9 (jitter = 0.0)        7.981
+40      images/sec: 528.6 +/- 5.0 (jitter = 0.0)        7.809
+50      images/sec: 529.3 +/- 4.5 (jitter = 0.0)        7.645
+60      images/sec: 528.6 +/- 4.1 (jitter = 0.0)        7.613
+70      images/sec: 529.1 +/- 3.8 (jitter = 0.0)        8.213
+80      images/sec: 528.6 +/- 3.5 (jitter = 0.0)        7.712
+90      images/sec: 529.8 +/- 3.4 (jitter = 0.0)        7.819
+100     images/sec: 529.3 +/- 3.2 (jitter = 0.0)        7.750
+----------------------------------------------------------------
+total images/sec: 528.64
+----------------------------------------------------------------
