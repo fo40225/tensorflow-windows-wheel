@@ -15,6 +15,10 @@ This repo contains all you need that work with tensorflow on windows.
 
 | Path | Compiler | CUDA/cuDNN | SIMD | Notes |
 |-|-|-|-|-|
+| 1.14.0\py37\CPU\sse2 | VS2019 16.1 | No | x86_64 | Python 3.7 |
+| 1.14.0\py37\CPU\avx2 | VS2019 16.1 | No | AVX2 | Python 3.7 |
+| 1.14.0\py37\GPU\cuda101cudnn76sse2 | VS2019 16.1 | 10.1.168_425.25/7.6.0.64 | x86_64 | Python 3.7/Compute 3.0 |
+| 1.14.0\py37\GPU\cuda101cudnn76avx2 | VS2019 16.1 | 10.1.168_425.25/7.6.0.64 | AVX2 | Python 3.7/Compute 3.0,3.5,5.0,5.2,6.1,7.0,7.5 |
 | 1.13.1\py37\CPU\sse2 | VS2017 15.9 | No | x86_64 | Python 3.7 |
 | 1.13.1\py37\CPU\avx2 | VS2017 15.9 | No | AVX2 | Python 3.7 |
 | 1.13.1\py37\GPU\cuda101cudnn75sse2 | VS2017 15.9 | 10.1.105_418.96/7.5.0.56 | x86_64 | Python 3.7/Compute 3.0 |
