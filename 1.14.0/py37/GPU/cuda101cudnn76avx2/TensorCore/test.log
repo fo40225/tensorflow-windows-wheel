@@ -781,8 +781,6 @@ total images/sec: 344.02
 
 (base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_AUTO_MIXED_PRECISION=1
 
-(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_AUTO_MIXED_PRECISION_GRAPH_REWRITE=1
-
 (base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
 WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\models\mobilenet.py:388: The name tf.nn.avg_pool is deprecated. Please use tf.nn.avg_pool2d instead.
 

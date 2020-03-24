@@ -1,0 +1,256 @@
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"
+Tue Mar 24 17:59:52 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 426.00       Driver Version: 441.22       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 208... WDDM  | 00000000:01:00.0 Off |                  N/A |
+| 27%   33C    P8     6W / 280W |    735MiB / 11264MiB |      2%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      1204    C+G   Insufficient Permissions                   N/A      |
+|    0      1212    C+G   Insufficient Permissions                   N/A      |
+|    0      1924    C+G   Insufficient Permissions                   N/A      |
+|    0      4032    C+G   C:\Windows\explorer.exe                    N/A      |
+|    0      4612    C+G   Insufficient Permissions                   N/A      |
+|    0      8020    C+G   ...5n1h2txyewy\StartMenuExperienceHost.exe N/A      |
+|    0      8120    C+G   ...dows.Cortana_cw5n1h2txyewy\SearchUI.exe N/A      |
+|    0      9044    C+G   ....135.0_x64__8wekyb3d8bbwe\YourPhone.exe N/A      |
+|    0     11284    C+G   ...hell.Experiences.TextInput.InputApp.exe N/A      |
+|    0     11468    C+G   ...t_cw5n1h2txyewy\ShellExperienceHost.exe N/A      |
+|    0     16952    C+G   ...dows.Cortana_cw5n1h2txyewy\SearchUI.exe N/A      |
++-----------------------------------------------------------------------------+
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2020-03-24 18:00:01.035197: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\compat\v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-03-24 18:00:03.817920: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-03-24 18:00:03.841072: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:00:03.844904: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-03-24 18:00:03.875839: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:00:03.891972: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-03-24 18:00:03.906719: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-03-24 18:00:03.926009: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-03-24 18:00:03.941850: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-03-24 18:00:03.964231: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:00:03.966500: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:00:04.492907: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:00:04.494748: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:00:04.496129: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:00:04.498019: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  1.15
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0324 18:00:04.516008  8368 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0324 18:00:04.516008  8368 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0324 18:00:04.531600  8368 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\ops\losses\losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+W0324 18:00:05.568657  8368 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\ops\losses\losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+Initializing graph
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0324 18:00:06.131023  8368 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-03-24 18:00:06.372063: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:00:06.375781: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-03-24 18:00:06.378002: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:00:06.380207: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-03-24 18:00:06.382990: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-03-24 18:00:06.385252: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-03-24 18:00:06.387486: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-03-24 18:00:06.389725: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:00:06.392222: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:00:06.393737: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:00:06.395961: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:00:06.398119: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:00:06.399800: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+INFO:tensorflow:Running local_init_op.
+I0324 18:00:07.009783  8368 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 18:00:07.057806  8368 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-03-24 18:00:07.960686: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:00:08.188331: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:00:09.165085: W tensorflow/stream_executor/cuda/redzone_allocator.cc:312] Internal: Invoking ptxas not supported on Windows
+Relying on driver to perform ptx compilation. This message will be only logged once.
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 321.3 +/- 0.0 (jitter = 0.0)        7.695
+10      images/sec: 322.1 +/- 3.2 (jitter = 6.6)        8.122
+20      images/sec: 322.3 +/- 2.6 (jitter = 6.0)        8.039
+30      images/sec: 321.6 +/- 2.2 (jitter = 4.2)        7.974
+40      images/sec: 321.8 +/- 1.9 (jitter = 3.1)        7.807
+50      images/sec: 321.4 +/- 1.6 (jitter = 3.1)        7.641
+60      images/sec: 321.4 +/- 1.5 (jitter = 2.8)        7.610
+70      images/sec: 321.1 +/- 1.3 (jitter = 2.6)        8.213
+80      images/sec: 320.9 +/- 1.3 (jitter = 2.6)        7.702
+90      images/sec: 321.0 +/- 1.2 (jitter = 2.7)        7.815
+100     images/sec: 320.8 +/- 1.1 (jitter = 2.8)        7.739
+----------------------------------------------------------------
+total images/sec: 320.81
+----------------------------------------------------------------
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_CUBLAS_TENSOR_OP_MATH_FP32=1
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_CUDNN_TENSOR_OP_MATH_FP32=1
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_CUDNN_RNN_TENSOR_OP_MATH_FP32=1
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2020-03-24 18:00:36.652681: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\compat\v2_compat.py:68: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-03-24 18:00:39.299692: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-03-24 18:00:39.329487: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:00:39.332916: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-03-24 18:00:39.339322: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:00:39.343861: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-03-24 18:00:39.346694: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-03-24 18:00:39.351831: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-03-24 18:00:39.356076: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-03-24 18:00:39.363948: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:00:39.366329: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:00:39.938442: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:00:39.940777: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:00:39.942241: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:00:39.944038: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  1.15
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0324 18:00:39.956622  1516 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0324 18:00:39.956622  1516 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0324 18:00:39.971722  1516 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\ops\losses\losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+W0324 18:00:41.013247  1516 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\ops\losses\losses_impl.py:121: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+Initializing graph
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0324 18:00:41.592856  1516 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-03-24 18:00:41.859793: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:00:41.861928: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-03-24 18:00:41.863374: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:00:41.864851: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cufft64_10.dll
+2020-03-24 18:00:41.866396: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library curand64_10.dll
+2020-03-24 18:00:41.867852: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusolver64_10.dll
+2020-03-24 18:00:41.869323: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cusparse64_10.dll
+2020-03-24 18:00:41.870794: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:00:41.872462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:00:41.873402: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:00:41.874865: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:00:41.875754: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:00:41.876876: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+INFO:tensorflow:Running local_init_op.
+I0324 18:00:42.420617  1516 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 18:00:42.471992  1516 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-03-24 18:00:43.368591: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:00:43.592285: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:00:44.530051: W tensorflow/stream_executor/cuda/redzone_allocator.cc:312] Internal: Invoking ptxas not supported on Windows
+Relying on driver to perform ptx compilation. This message will be only logged once.
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 339.1 +/- 0.0 (jitter = 0.0)        7.695
+10      images/sec: 356.7 +/- 4.7 (jitter = 20.3)       8.122
+20      images/sec: 358.2 +/- 3.3 (jitter = 9.2)        8.039
+30      images/sec: 358.2 +/- 2.8 (jitter = 8.3)        7.974
+40      images/sec: 358.2 +/- 2.4 (jitter = 8.3)        7.808
+50      images/sec: 357.6 +/- 2.2 (jitter = 9.1)        7.640
+60      images/sec: 357.5 +/- 2.0 (jitter = 9.2)        7.608
+70      images/sec: 357.5 +/- 1.8 (jitter = 10.1)       8.212
+80      images/sec: 357.7 +/- 1.6 (jitter = 12.7)       7.704
+90      images/sec: 357.8 +/- 1.5 (jitter = 11.4)       7.816
+100     images/sec: 357.7 +/- 1.5 (jitter = 11.4)       7.739
+----------------------------------------------------------------
+total images/sec: 357.68
+----------------------------------------------------------------
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>

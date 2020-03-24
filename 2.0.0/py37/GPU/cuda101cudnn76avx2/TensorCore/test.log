@@ -1,0 +1,220 @@
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>"C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe"
+Tue Mar 24 18:05:17 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 426.00       Driver Version: 441.22       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce RTX 208... WDDM  | 00000000:01:00.0 Off |                  N/A |
+| 27%   34C    P8     7W / 280W |    749MiB / 11264MiB |      1%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      1204    C+G   Insufficient Permissions                   N/A      |
+|    0      1212    C+G   Insufficient Permissions                   N/A      |
+|    0      1924    C+G   Insufficient Permissions                   N/A      |
+|    0      4032    C+G   C:\Windows\explorer.exe                    N/A      |
+|    0      4612    C+G   Insufficient Permissions                   N/A      |
+|    0      8020    C+G   ...5n1h2txyewy\StartMenuExperienceHost.exe N/A      |
+|    0      8120    C+G   ...dows.Cortana_cw5n1h2txyewy\SearchUI.exe N/A      |
+|    0      9044    C+G   ....135.0_x64__8wekyb3d8bbwe\YourPhone.exe N/A      |
+|    0     11284    C+G   ...hell.Experiences.TextInput.InputApp.exe N/A      |
+|    0     11468    C+G   ...t_cw5n1h2txyewy\ShellExperienceHost.exe N/A      |
+|    0     16952    C+G   ...dows.Cortana_cw5n1h2txyewy\SearchUI.exe N/A      |
++-----------------------------------------------------------------------------+
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2020-03-24 18:05:28.361832: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\compat\v2_compat.py:65: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-03-24 18:05:30.263056: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-03-24 18:05:30.288217: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:05:30.291579: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-03-24 18:05:30.294160: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:05:30.928022: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:05:30.930467: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:05:30.931835: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:05:30.933622: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  2.0
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0324 18:05:30.941243 13152 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0324 18:05:30.941243 13152 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0324 18:05:30.971738 13152 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+Initializing graph
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0324 18:05:32.638369 13152 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-03-24 18:05:32.891421: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:05:32.894236: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-03-24 18:05:32.896041: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:05:32.897043: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:05:32.898562: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:05:32.899475: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:05:32.900619: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+INFO:tensorflow:Running local_init_op.
+I0324 18:05:33.486167 13152 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 18:05:33.533058 13152 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-03-24 18:05:34.462685: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:05:34.700083: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:05:35.645136: W tensorflow/stream_executor/cuda/redzone_allocator.cc:312] Internal: Invoking ptxas not supported on Windows
+Relying on driver to perform ptx compilation. This message will be only logged once.
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 343.3 +/- 0.0 (jitter = 0.0)        7.695
+10      images/sec: 319.5 +/- 3.7 (jitter = 7.5)        8.122
+20      images/sec: 320.9 +/- 2.6 (jitter = 8.8)        8.039
+30      images/sec: 320.9 +/- 2.2 (jitter = 11.4)       7.974
+40      images/sec: 319.9 +/- 1.8 (jitter = 7.6)        7.807
+50      images/sec: 319.2 +/- 1.7 (jitter = 5.3)        7.641
+60      images/sec: 317.8 +/- 1.7 (jitter = 5.3)        7.610
+70      images/sec: 317.9 +/- 1.5 (jitter = 4.5)        8.213
+80      images/sec: 318.2 +/- 1.4 (jitter = 3.0)        7.704
+90      images/sec: 318.3 +/- 1.3 (jitter = 2.7)        7.822
+100     images/sec: 318.4 +/- 1.2 (jitter = 2.6)        7.737
+----------------------------------------------------------------
+total images/sec: 318.35
+----------------------------------------------------------------
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_CUBLAS_TENSOR_OP_MATH_FP32=1
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_CUDNN_TENSOR_OP_MATH_FP32=1
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>SET TF_ENABLE_CUDNN_RNN_TENSOR_OP_MATH_FP32=1
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
+2020-03-24 18:06:03.239736: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\compat\v2_compat.py:65: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-03-24 18:06:05.083962: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-03-24 18:06:05.111646: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:06:05.115076: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-03-24 18:06:05.117066: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:06:05.691809: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:06:05.694494: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:06:05.695939: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:06:05.697834: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+TensorFlow:  2.0
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  64 global
+             64 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   None
+==========
+Generating training model
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0324 18:06:05.714448  6440 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0324 18:06:05.714448  6440 deprecation.py:323] From C:\Users\User\Anaconda3\lib\site-packages\tensorflow_core\python\layers\convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0324 18:06:05.729592  6440 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+Initializing graph
+WARNING:tensorflow:From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0324 18:06:07.381132  6440 deprecation.py:323] From C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks\benchmark_cnn.py:2267: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-03-24 18:06:07.626485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
+name: GeForce RTX 2080 Ti major: 7 minor: 5 memoryClockRate(GHz): 1.545
+pciBusID: 0000:01:00.0
+2020-03-24 18:06:07.629595: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-03-24 18:06:07.631401: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1746] Adding visible gpu devices: 0
+2020-03-24 18:06:07.632366: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1159] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-03-24 18:06:07.633867: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1165]      0
+2020-03-24 18:06:07.634773: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
+2020-03-24 18:06:07.635962: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8601 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:01:00.0, compute capability: 7.5)
+INFO:tensorflow:Running local_init_op.
+I0324 18:06:08.214338  6440 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 18:06:08.274688  6440 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-03-24 18:06:09.231024: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cublas64_10.dll
+2020-03-24 18:06:09.465487: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudnn64_7.dll
+2020-03-24 18:06:10.424176: W tensorflow/stream_executor/cuda/redzone_allocator.cc:312] Internal: Invoking ptxas not supported on Windows
+Relying on driver to perform ptx compilation. This message will be only logged once.
+Done warm up
+Step    Img/sec total_loss
+1       images/sec: 352.4 +/- 0.0 (jitter = 0.0)        7.696
+10      images/sec: 352.0 +/- 2.0 (jitter = 0.5)        8.122
+20      images/sec: 354.3 +/- 2.4 (jitter = 4.4)        8.039
+30      images/sec: 353.8 +/- 2.6 (jitter = 16.1)       7.974
+40      images/sec: 353.3 +/- 2.3 (jitter = 19.0)       7.807
+50      images/sec: 352.9 +/- 2.1 (jitter = 18.7)       7.643
+60      images/sec: 352.5 +/- 2.0 (jitter = 18.3)       7.609
+70      images/sec: 352.2 +/- 1.8 (jitter = 17.9)       8.215
+80      images/sec: 352.2 +/- 1.7 (jitter = 17.6)       7.702
+90      images/sec: 352.2 +/- 1.6 (jitter = 14.9)       7.817
+100     images/sec: 352.2 +/- 1.5 (jitter = 10.0)       7.739
+----------------------------------------------------------------
+total images/sec: 352.15
+----------------------------------------------------------------
+
+(base) C:\Users\User\Source\Repos\benchmarks\scripts\tf_cnn_benchmarks>

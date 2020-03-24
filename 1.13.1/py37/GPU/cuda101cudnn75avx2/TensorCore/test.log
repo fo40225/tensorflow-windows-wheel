@@ -309,7 +309,6 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'
 
 SET TF_ENABLE_AUTO_MIXED_PRECISION=1
-SET TF_ENABLE_AUTO_MIXED_PRECISION_GRAPH_REWRITE=1
 SET TF_ENABLE_AUTO_MIXED_PRECISION_LOSS_SCALING=0
 
 >python tf_cnn_benchmarks.py --data_format=NHWC --batch_size=64 --num_batches=100 --model=resnet50 --optimizer=sgd --variable_update=replicated --use_fp16=False --distortions=False --local_parameter_device=gpu --num_gpus=1 --display_every=10
