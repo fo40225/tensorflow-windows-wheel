@@ -2,7 +2,7 @@
 
 This repo contains all you need that work with tensorflow on windows.
 
-- Python 3.7 support
+- Python 3.8 support
 
 - 64 bit Windows support
 
@@ -10,11 +10,10 @@ This repo contains all you need that work with tensorflow on windows.
     - If your CPU didn't support AVX instructions, you will get `ImportError: DLL load failed: A dynamic link library (DLL) initialization routine failed.` (Win 10) or `ImportError: DLL load failed with error code -1073741795` (Win 7) when using tensorflow official release 1.6.0 and up (`pip install tensorflow`)
     - You can use `pip install <filename.whl>` which file download from sse2 folder instead of using official AVX binary.
 
-- Legacy GPU (compute capability 3.0 up) support
-    - Because this repo's binary only contain PTX code, it need to do a Just-In-Time compile to SASS to target your graphic card by your driver. It will take time for compiling when execute tensorflow first time.
-
 | Path | Compiler | CUDA/cuDNN | SIMD | Notes |
 |-|-|-|-|-|
+| 2.3.0\py38\CPU+GPU\cuda110cudnn8sse2 | VS2019 16.6 | 11.0.2_451.48/8.0.2.39 | x86_64 | Python 3.8/compute_35 |
+| 2.3.0\py38\CPU+GPU\cuda110cudnn8avx2 | VS2019 16.6 | 11.0.2_451.48/8.0.2.39 | AVX2 | Python 3.8/compute_35,sm_50,sm_52,sm_61,sm_70,compute_75 |
 | 2.2.0\py37\CPU+GPU\cuda102cudnn76sse2 | VS2019 16.5 | 10.2.89_441.22/7.6.5.32 | x86_64 | Python 3.7/Compute 3.0 |
 | 2.2.0\py37\CPU+GPU\cuda102cudnn76avx2 | VS2019 16.5 | 10.2.89_441.22/7.6.5.32 | AVX2 | Python 3.7/Compute 3.0,3.5,5.0,5.2,6.1,7.0,7.5 |
 | 2.1.0\py37\CPU+GPU\cuda102cudnn76sse2 | VS2019 16.4 | 10.2.89_441.22/7.6.5.32 | x86_64 | Python 3.7/Compute 3.0 |
