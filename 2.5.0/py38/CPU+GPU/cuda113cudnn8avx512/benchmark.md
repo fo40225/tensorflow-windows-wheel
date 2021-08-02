@@ -1,0 +1,15 @@
+Intel Core i7-11700K
+
+MSI Z590-A PRO
+
+4x Crucial CT32G4DFD832A.C16FE
+
+Crucial CT1000P5SSD8
+
+GIGABYTE GeForce RTX 2080 Ti GV-N208TTURBO-11GC
+
+sse2 21ms/step
+
+avx2 21ms/step
+
+avx512 21ms/step
